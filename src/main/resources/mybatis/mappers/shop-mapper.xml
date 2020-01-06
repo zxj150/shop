@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.situ.shop.goods.dao.ShopDao">
+<sql id="shop_base">
+		SELECT ROW_ID,LIST_ID,SHOP_NAME,SHOP_CODE,SHOP_PICTURE,SHOP_PRICE,SHOP_NUMBER,SHOP_STATE,SHOP_INFO FROM TB_SHOP WHERE SHOP_STATE=1
+	</sql>
+	<insert id="saveShop" useGeneratedKeys="true" keyColumn="ROW_ID" keyProperty="rowId">
+	INSERT INTO TB_SHOP (LIST_ID,SHOP_NAME,SHOP_CODE,SHOP_PICTURE,SHOP_PRICE,SHOP_NUMBER,SHOP_STATE,SHOP_INFO)
+		VALUES(#{listId},#{shopName},#{shopCode},#{shopPicture},#{shopPrice},#{shopNumber},#{shopState},#{shopInfo})
+	</insert>
+	
+	<update id="update" parameterType="Shop">
+		UPDATE TB_SHOP 
+		<set>
+			<if test="shopName!=null">
+				SHOP_NAME = #{shopName},
+			</if>
+			<if test="shopPicture!=null">
+				SHOP_PICTURE = #{shopPicture},
+			</if>
+			<if test="shopCode!=null">
+				SHOP_CODE = #{shopCode},
+			</if>
+			<if test="shopNumber!=null">
+				SHOP_NUMBER = #{shopNumber},
+			</if>
+			<if test="shopInfo!=null">
+				SHOP_INFO = #{shopInfo},
+			</if>
+			<if test="shopPrice!=null">
+				SHOP_PRICE = #{shopPrice},
+			</if>
+		</set>
+		WHERE ROW_ID = #{rowId}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM TB_SHOP WHERE ROW_ID = #{rowId}
+	</delete>
+	
+	<select id="get" resultType="Shop">
+		<include refid="shop_base"/> AND ROW_ID = #{rowId}
+	</select>
+	
+	<select id="find" resultType="Shop">
+		<include refid="shop_base"/>
+	</select>
+	<select id="findByPage" resultType="Shop">
+		<include refid="shop_base"/>
+		<include refid="search_sql"/>
+		 LIMIT #{firstResult},#{maxResults}
+	</select>
+	
+	<select id="getByName" resultType="Shop">
+		<include refid="shop_base"/> AND SHOP_NAME = #{shopName}
+	</select>
+	
+	<select id="getCount" resultType="java.lang.Integer">
+		SELECT COUNT(ROW_ID)FROM TB_SHOP WHERE SHOP_STATE=1
+		<include refid="search_sql"/>
+	</select>
+	<sql id="search_sql">
+		<if test="searchShop!=null">
+			<if test="searchShop.shopName!=null and searchShop.shopName!=''">
+			AND SHOP_NAME = #{searchShop.shopName}
+			</if>
+			<if test="searchShop.shopCode!=null and searchShop.shopCode!=''">
+			AND SHOP_CODE = #{searchShop.shopCode}
+			</if>
+			<if test="searchShop.listId!=null and searchShop.listId!=''">
+			AND LIST_ID = #{searchShop.listId}
+			</if>
+		</if>
+	</sql>
+</mapper>

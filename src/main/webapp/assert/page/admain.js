@@ -1,0 +1,18 @@
+$(document).ready(function(){
+	$("#admain_button_submit").off('click').on('click',function(){
+		$.ajax({
+			type:'post',
+			url:'user/doAdmainlogin',
+			data:$('#admain_form').serialize(),
+			success:function(result){
+				if(result){
+					alert("登陆成功！！！");
+					window.location.href='admain';
+				}else{
+					alert("账号或密码错误！！！");
+					window.location.href='admainlogin';
+				}
+			}
+		});
+	});
+});

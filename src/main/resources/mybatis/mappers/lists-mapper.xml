@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.situ.shop.list.dao.ListDao">
+<sql id="list_base_select">
+		SELECT ROW_ID,LIST_NAME,LIST_INFO,PARENT_LIST_IP,LIST_GROUP,ACTIVE_FLAG,CREATE_BY,CREATE_DATE,UPDATE_BY,UPDATE_DATE FROM TB_LIST WHERE ACTIVE_FLAG = 1
+	</sql>
+ <insert id="save" parameterType="Lists" useGeneratedKeys="true" keyColumn="ROW_ID" keyProperty="rowId">
+		INSERT INTO TB_LIST (LIST_NAME,LIST_INFO,PARENT_LIST_IP,CREATE_BY,CREATE_DATE,LIST_GROUP,ACTIVE_FLAG)
+		VALUES(#{listName},#{listInfo},#{parentListIp},#{createBy},#{createDate},#{listGroup},1)
+	</insert>
+ 
+	<select id="find" resultType="Lists">
+	<include refid="list_base_select"></include>
+	</select>
+	
+	<update id="delete">
+	  UPDATE TB_LIST
+	  <set>
+	  ACTIVE_FLAG=0
+	  </set>
+	 WHERE ROW_ID = #{rowId}
+	</update>
+	
+	<update id="update" parameterType="Lists">
+		UPDATE TB_LIST 
+		<set>
+			<if test="listName!=null">
+				LIST_NAME = #{listName},
+			</if>
+			<if test="parentListIp!=null">
+				PARENT_LIST_IP = #{parentListIp},
+			</if>
+			<if test="listInfo!=null">
+				LIST_INFO = #{listInfo},
+			</if>
+			<if test="updateBy!=null">
+				UPDATE_BY = #{updateBy},
+			</if>
+			<if test="updateDate!=null">
+				UPDATE_DATE = #{updateDate},
+			</if>
+		</set>
+		WHERE ROW_ID = #{rowId}
+	</update>
+	
+	<select id="get" resultType="Lists">
+		<include refid="list_base_select"/> AND ROW_ID = #{rowId}
+	</select>
+	
+	<select id="getByName" resultType="Lists">
+		<include refid="list_base_select"/> AND LIST_NAME = #{listName}
+	</select>
+</mapper>
