@@ -178,7 +178,7 @@ function goupdate(rowId){
 }
 
 //init table data
-/* function initTalbeData(pageNo){
+ function initTalbeData(pageNo){
 	 $.ajax({
 		 type:'post',
 		 url:'address/find/'+pageNo,
@@ -187,7 +187,7 @@ function goupdate(rowId){
 			 $('#dataTable_wrapper').html(htmlData);
 		 }
 	 });
- }*/
+ }
  //响应分页
  /*function page_select(pageNo){
 	 initTalbeData(pageNo);
