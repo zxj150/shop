@@ -9,18 +9,18 @@ import com.situ.shop.base.BaseClass;
 public class Address extends BaseClass implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private String userid;//用户id
+	private String userId;//用户id
 	private Long provinceCode;//省code
 	private Long cityCode;//市code
-	private Long districtCode;//区code
+	private Long areaCode;//区code
 	private String detailedAddress;//详细地址
 	private Long zipCode;//邮编
 	private Long consigneeTlp;//收货人电话
-	public String getUserid() {
-		return userid;
+	public String getUserId() {
+		return userId;
 	}
-	public void setUserid(String userid) {
-		this.userid = userid;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	public Long getProvinceCode() {
 		return provinceCode;
@@ -34,11 +34,11 @@ public class Address extends BaseClass implements Serializable {
 	public void setCityCode(Long cityCode) {
 		this.cityCode = cityCode;
 	}
-	public Long getDistrictCode() {
-		return districtCode;
+	public Long getAreaCode() {
+		return areaCode;
 	}
-	public void setDistrictCode(Long districtCode) {
-		this.districtCode = districtCode;
+	public void setAreaCode(Long areaCode) {
+		this.areaCode = areaCode;
 	}
 	public String getDetailedAddress() {
 		return detailedAddress;

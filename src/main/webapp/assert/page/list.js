@@ -16,7 +16,6 @@ $(document).ready(function() {
 		$('#modal_role').modal('show');
 		$('#parentListIp').val("-1");
 		$('.formError').remove();
-		
 		$('#roleName').removeAttr('data-skip');
 		$('#rowId').removeAttr('value');
 		$('#action_info').html('新增');
@@ -39,12 +38,9 @@ $('#dataTable_wrapper').off('click','#deleteA').on('click','#deleteA',function()
 	if(confirm("您确定要删除吗？")){	
 	$.ajax({
 		url:"list/delete/"+rowId,
-		
 		dataType:"json",
 		success:function(result){
-			
 			initTalbeData();
-			
 		}
 	});
 	}	

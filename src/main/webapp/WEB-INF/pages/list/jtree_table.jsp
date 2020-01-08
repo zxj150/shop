@@ -32,9 +32,9 @@
 		</c:if>
 		</table>
 </body>
-<script type="text/javascript" src="assert/vendor/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="assert/vendor/jquery-treetable/js/jquery.treetable.js"></script>
 <script>
 	$("#example-basic-expandable").treetable({ expandable: true });
 </script>
+
 </html>

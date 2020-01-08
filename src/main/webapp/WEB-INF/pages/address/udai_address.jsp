@@ -3,37 +3,34 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
 <head>
-	<meta charset="UTF-8">
-	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="stylesheet" href="css/iconfont.css">
-	<link rel="stylesheet" href="css/global.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="css/swiper.min.css">
-	<link rel="stylesheet" href="css/styles.css">
-	<script src="js/jquery.1.12.4.min.js" charset="UTF-8"></script>
-	<script src="js/bootstrap.min.js" charset="UTF-8"></script>
-	<script src="js/swiper.min.js" charset="UTF-8"></script>
-	<script src="js/global.js" charset="UTF-8"></script>
-	<script src="assert/page/address.js" charset="UTF-8"></script>
-	<!-- <script src="js/jquery.DJMask.2.1.1.js" charset="UTF-8"></script> -->
-	<title>U袋网</title>
+<meta charset="UTF-8">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="css/iconfont.css">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/swiper.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/jquery.1.12.4.min.js" charset="UTF-8"></script>
+<script src="js/bootstrap.min.js" charset="UTF-8"></script>
+<script src="js/swiper.min.js" charset="UTF-8"></script>
+<script src="js/global.js" charset="UTF-8"></script>
+<script src="assert/page/address.js" charset="UTF-8"></script>
+<!-- <script src="js/jquery.DJMask.2.1.1.js" charset="UTF-8"></script> -->
+<title>U袋网</title>
 </head>
 <body>
 	<!-- 顶部tab -->
 	<div class="tab-header">
 		<div class="inner">
 			<div class="pull-left">
-				<div class="pull-left">嗨，欢迎来到<span class="cr">U袋网</span></div>
-				<a href="agent_level.jsp">网店代销</a>
-				<a href="temp_article/udai_article4.jsp">帮助中心</a>
+				<div class="pull-left">
+					嗨，欢迎来到<span class="cr">U袋网</span>
+				</div>
+				<a href="agent_level.jsp">网店代销</a> <a href="temp_article/udai_article4.jsp">帮助中心</a>
 			</div>
 			<div class="pull-right">
-				<a href="login.jsp"><span class="cr">登录</span></a>
-				<a href="login.jsp?p=register">注册</a>
-				<a href="udai_welcome.jsp">我的U袋</a>
-				<a href="udai_order.jsp">我的订单</a>
-				<a href="udai_integral.jsp">积分平台</a>
+				<a href="login.jsp"><span class="cr">登录</span></a> <a href="login.jsp?p=register">注册</a> <a href="udai_welcome.jsp">我的U袋</a> <a href="udai_order.jsp">我的订单</a> <a href="udai_integral.jsp">积分平台</a>
 			</div>
 		</div>
 	</div>
@@ -93,35 +90,31 @@
 				<div class="user-content__box clearfix bgf">
 					<div class="title">账户信息-收货地址</div>
 					<form action="" class="user-addr__form form-horizontal" role="form" id="form_role_add_edit">
-						<p class="fz18 cr">新增收货地址<span class="c6" style="margin-left: 20px">电话号码、手机号码选填一项，其余均为必填项</span></p>
-						<div class="form-group">
-							<label for="name" class="col-sm-2 control-label">收货人姓名：</label>
+						<p class="fz18 cr">
+							新增收货地址<span class="c6" style="margin-left: 20px">电话号码、手机号码选填一项，其余均为必填项</span>
+						</p>
+						<div class="form-group" name="userId" id="userId">
+							<label for="name" class="col-sm-2 control-label" id="userId">收货人姓名：</label>
 							<div class="col-sm-6">
-								<input class="form-control"name="userId" id="userId" placeholder="请输入姓名" type="text">
+								<input class="form-control" name="userId" id="userId" placeholder="请输入姓名" type="text">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="details" class="col-sm-2 control-label">收货地址：</label>
 							<div class="col-sm-10">
 								<div class="addr-linkage">
-								<select class="form-control" name="provinceCode" id="provinceCode">
-								<option>省信息</option>
-								<c:if test="${!empty areaList}">
-									<c:forEach items="${areaList}" var="area">
-										<option value="${area.areaCode }">${area.areaName }</option>
-									</c:forEach>
-								</c:if>
-							</select>
-									<select class="form-control" name="cityCode" id="cityCode">
-								<option>市信息</option>
-								<c:forEach items="${areaList}" var="area">
-										<option value="${area.areaCode }">${area.areaName }</option>
-									</c:forEach>
-							</select>
-							<select class="form-control" name="areaCode" id="areaCode">
-								<option>区信息</option>
-								
-							</select>
+									<select class="form-control" name="provinceCode" id="provinceCode">
+										<option>省信息</option>
+										<c:if test="${!empty areaList}">
+											<c:forEach items="${areaList}" var="area">
+												<option value="${area.areaCode }">${area.areaName }</option>
+											</c:forEach>
+										</c:if>
+									</select> <select class="form-control" name="cityCode" id="cityCode">
+										<option>市信息</option>
+									</select> <select class="form-control" name="areaCode" id="areaCode">
+										<option>区信息</option>
+									</select>
 								</div>
 								<input class="form-control" id="detailedAddress" name="detailedAddress" placeholder="建议您如实填写详细收货地址，例如街道名称，门牌号码等信息" maxlength="30" type="text">
 							</div>
@@ -129,13 +122,13 @@
 						<div class="form-group">
 							<label for="code" class="col-sm-2 control-label">地区编码：</label>
 							<div class="col-sm-6">
-								<input class="form-control" id="zipCode" name="zipCode"placeholder="请输入邮政编码" type="text">
+								<input class="form-control" id="zipCode" name="zipCode" placeholder="请输入邮政编码" type="text">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="mobile" class="col-sm-2 control-label">手机号码：</label>
 							<div class="col-sm-6">
-								<input class="form-control" id="consigneeTlp"name="consigneeTlp" placeholder="请输入手机号码" type="text">
+								<input class="form-control" id="consigneeTlp" name="consigneeTlp" placeholder="请输入手机号码" type="text">
 							</div>
 						</div>
 						<!-- <div class="form-group">
@@ -153,12 +146,12 @@
 						</div>
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-6">
-								<button type="button" class="but" id="button_submit">保存</button>
+								<button type="button" class="but" id="button_submit1">保存</button>
 							</div>
 						</div>
 						<script src="js/jquery.citys.js"></script>
 						<script src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script>
-					<!-- 	<script>
+						<!-- 	<script>
 							$(document).ready(function(){
 								// 添加街道/乡镇
 								function townFormat(info){
@@ -209,66 +202,36 @@
 					<div class="table-thead addr-thead">
 						<div class="tdf1">收货人</div>
 						<div class="tdf2">所在地</div>
-						<div class="tdf3"><div class="tdt-a_l">详细地址</div></div>
-						<!-- <div class="tdf1">邮编</div> -->
+						<div class="tdf3">
+							<div class="tdt-a_l">详细地址</div>
+						</div>
+						<div class="tdf1">邮编</div>
 						<div class="tdf1">电话/手机</div>
 						<div class="tdf1">操作</div>
 						<div class="tdf1"></div>
 					</div>
+					
 					<div class="addr-list">
+					<c:if test="${!empty addressList}">
+								<c:forEach items="${addressList}" var="address">
 						<div class="addr-item">
-							<div class="tdf1">喵喵喵</div>
-							<div class="tdf2 tdt-a_l">福建省 福州市 晋安区</div>
-							<div class="tdf3 tdt-a_l">浦下村74号</div>
-							<!-- <div class="tdf1">350111</div> -->
-							<div class="tdf1">153****7649</div>
+							<div class="tdf1">${address.userId}</div>
+							<div class="tdf2 tdt-a_l" value="${address.areaCode}">${address.areaCode}</div>
+							<div class="tdf3 tdt-a_l">${address.detailedAddress}</div>
+							<div class="tdf1">${address.zipCode}</div>
+							<div class="tdf1">${address.consigneeTlp}</div>
 							<div class="tdf1 order">
-								<a href="udai_address_edit.jsp">修改</a><a href="">删除</a>
-							</div>
-							<div class="tdf1">
-								<a href="" class="default active">默认地址</a>
-							</div>
-						</div>
-						<div class="addr-item">
-							<div class="tdf1">喵污喵⑤</div>
-							<div class="tdf2 tdt-a_l">福建省 福州市 仓山区 建新镇</div>
-							<div class="tdf3 tdt-a_l">建新中心小学</div>
-							<!-- <div class="tdf1">350104</div> -->
-							<div class="tdf1">153****7649</div>
-							<div class="tdf1 order">
-								<a href="udai_address_edit.jsp">修改</a><a href="">删除</a>
+								<a href="udai_address_edit.jsp">修改</a>
+								<input type="button"  id="deleteA" value="删除"/>
 							</div>
 							<div class="tdf1">
 								<a href="" class="default">设为默认</a>
 							</div>
 						</div>
-						<div class="addr-item">
-							<div class="tdf1">taroxd</div>
-							<div class="tdf2 tdt-a_l">福建省 福州市 鼓楼区 鼓东街道</div>
-							<div class="tdf3 tdt-a_l">世界金龙大厦20层B北 福州腾讯企点运营中心</div>
-							<!-- <div class="tdf1">350104</div> -->
-							<div class="tdf1">153****7649</div>
-							<div class="tdf1 order">
-								<a href="udai_address_edit.jsp">修改</a><a href="">删除</a>
-							</div>
-							<div class="tdf1">
-								<a href="" class="default">设为默认</a>
-							</div>
-						</div>
-						<div class="addr-item">
-							<div class="tdf1">VIPArcher</div>
-							<div class="tdf2 tdt-a_l">福建省 福州市 仓山区 建新镇</div>
-							<div class="tdf3 tdt-a_l">详细地址</div>
-							<!-- <div class="tdf1">350104</div> -->
-							<div class="tdf1">153****7649</div>
-							<div class="tdf1 order">
-								<a href="udai_address_edit.jsp">修改</a><a href="">删除</a>
-							</div>
-							<div class="tdf1">
-								<a href="" class="default">设为默认</a>
-							</div>
-						</div>
+							</c:forEach>
+						</c:if>
 					</div>
+					
 				</div>
 			</div>
 		</section>
@@ -276,43 +239,42 @@
 	<!-- 右侧菜单 -->
 	<div class="right-nav">
 		<ul class="r-with-gotop">
-			<li class="r-toolbar-item">
-				<a href="udai_welcome.jsp" class="r-item-hd">
-					<i class="iconfont icon-user" data-badge="0"></i>
-					<div class="r-tip__box"><span class="r-tip-text">用户中心</span></div>
-				</a>
-			</li>
-			<li class="r-toolbar-item">
-				<a href="udai_shopcart.jsp" class="r-item-hd">
-					<i class="iconfont icon-cart"></i>
-					<div class="r-tip__box"><span class="r-tip-text">购物车</span></div>
-				</a>
-			</li>
-			<li class="r-toolbar-item">
-				<a href="udai_collection.jsp" class="r-item-hd">
-					<i class="iconfont icon-aixin"></i>
-					<div class="r-tip__box"><span class="r-tip-text">我的收藏</span></div>
-				</a>
-			</li>
-			<li class="r-toolbar-item">
-				<a href="" class="r-item-hd">
-					<i class="iconfont icon-liaotian"></i>
-					<div class="r-tip__box"><span class="r-tip-text">联系客服</span></div>
-				</a>
-			</li>
-			<li class="r-toolbar-item">
-				<a href="issues.jsp" class="r-item-hd">
-					<i class="iconfont icon-liuyan"></i>
-					<div class="r-tip__box"><span class="r-tip-text">留言反馈</span></div>
-				</a>
-			</li>
-			<li class="r-toolbar-item to-top">
-				<i class="iconfont icon-top"></i>
-				<div class="r-tip__box"><span class="r-tip-text">返回顶部</span></div>
-			</li>
+			<li class="r-toolbar-item"><a href="udai_welcome.jsp" class="r-item-hd"> <i class="iconfont icon-user" data-badge="0"></i>
+					<div class="r-tip__box">
+						<span class="r-tip-text">用户中心</span>
+					</div>
+			</a></li>
+			<li class="r-toolbar-item"><a href="udai_shopcart.jsp" class="r-item-hd"> <i class="iconfont icon-cart"></i>
+					<div class="r-tip__box">
+						<span class="r-tip-text">购物车</span>
+					</div>
+			</a></li>
+			<li class="r-toolbar-item"><a href="udai_collection.jsp" class="r-item-hd"> <i class="iconfont icon-aixin"></i>
+					<div class="r-tip__box">
+						<span class="r-tip-text">我的收藏</span>
+					</div>
+			</a></li>
+			<li class="r-toolbar-item"><a href="" class="r-item-hd"> <i class="iconfont icon-liaotian"></i>
+					<div class="r-tip__box">
+						<span class="r-tip-text">联系客服</span>
+					</div>
+			</a></li>
+			<li class="r-toolbar-item"><a href="issues.jsp" class="r-item-hd"> <i class="iconfont icon-liuyan"></i>
+					<div class="r-tip__box">
+						<span class="r-tip-text">留言反馈</span>
+					</div>
+			</a></li>
+			<li class="r-toolbar-item to-top"><i class="iconfont icon-top"></i>
+				<div class="r-tip__box">
+					<span class="r-tip-text">返回顶部</span>
+				</div></li>
 		</ul>
 		<script>
-			$(document).ready(function(){ $('.to-top').toTop({position:false}) });
+			$(document).ready(function() {
+				$('.to-top').toTop({
+					position : false
+				})
+			});
 		</script>
 	</div>
 	<!-- 底部信息 -->
@@ -365,8 +327,7 @@
 			</ul>
 			<!-- 版权 -->
 			<p class="copyright">
-				© 2005-2017 U袋网 版权所有，并保留所有权利<br>
-				ICP备案证书号：闽ICP备16015525号-2&nbsp;&nbsp;&nbsp;&nbsp;福建省宁德市福鼎市南下村小区（锦昌阁）1栋1梯602室&nbsp;&nbsp;&nbsp;&nbsp;Tel: 18650406668&nbsp;&nbsp;&nbsp;&nbsp;E-mail: 18650406668@qq.com
+				© 2005-2017 U袋网 版权所有，并保留所有权利<br> ICP备案证书号：闽ICP备16015525号-2&nbsp;&nbsp;&nbsp;&nbsp;福建省宁德市福鼎市南下村小区（锦昌阁）1栋1梯602室&nbsp;&nbsp;&nbsp;&nbsp;Tel: 18650406668&nbsp;&nbsp;&nbsp;&nbsp;E-mail: 18650406668@qq.com
 			</p>
 		</div>
 	</div>

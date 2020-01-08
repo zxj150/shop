@@ -18,7 +18,7 @@ public class AddressServiceImpl implements Serializable, AddressService {
 		private AddressDao addressDao;
 		@Override
 		public Long saveAddress(Address address) {
-			
+			address.setActiveFlag(1);
 			return addressDao.save(address);
 		}
 

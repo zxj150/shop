@@ -4,14 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.situ.shop.address.dao.AddressDao">
 <sql id="address_base_select">
-		SELECT ROW_ID,USER_ID,PROVINCE_CODE,CITY_CODE,DISTRICT_CODE,DETAILED_ADDRESS,ZIP_CODE,CONSIGNEE_TLP,ACTIVE_FLAG FROM TB_ADDRESS WHERE ACTIVE_FLAG = 1
+		SELECT ROW_ID,USER_ID,PROVINCE_CODE,CITY_CODE,AREA_CODE,DETAILED_ADDRESS,ZIP_CODE,CONSIGNEE_TLP,ACTIVE_FLAG FROM TB_ADDRESS WHERE ACTIVE_FLAG = 1
 	</sql>
 	
 	<insert id="save" parameterType="Address" useGeneratedKeys="true" keyColumn="ROW_ID" keyProperty="rowId">
-		INSERT INTO TB_ADDRESS (USER_ID,PROVINCE_CODE,CITY_CODE,DISTRICT_CODE,DETAILED_ADDRESS,ZIP_CODE,CONSIGNEE_TLP)
-		VALUES(#{userId},#{provinceCode},#{cityCode},#{disteuctCode},#{detailedAddress},#{zipCode},#{recPhone})
+		INSERT INTO TB_ADDRESS (USER_ID,PROVINCE_CODE,CITY_CODE,AREA_CODE,DETAILED_ADDRESS,ZIP_CODE,CONSIGNEE_TLP,ACTIVE_FLAG)
+		VALUES(#{userId},#{provinceCode},#{cityCode},#{areaCode},#{detailedAddress},#{zipCode},#{consigneeTlp},1)
 	</insert>
-	
 	<select id="get" resultType="Address">
 		<include refid="address_base_select"/> AND ROW_ID = #{rowId}
 	</select>
@@ -31,22 +30,22 @@
 	<update id="update" parameterType="Address">
 		UPDATE TB_ADDRESS 
 		<set>
-			<if test="proCode!=null">
+			<if test="provinceCode!=null">
 				PROVINCE_CODE = #{provinceCode},
 			</if>
 			<if test="cityCode!=null">
 				CITY_CODE = #{cityCode},
 			</if>
 			<if test="DISTRICTCode!=null">
-				DISTRICT_CODE = #{districtCode},
+				AREA_CODE = #{areaCode},
 			</if>
-			<if test="detAddress!=null">
+			<if test="detailedAddress!=null">
 				DETAILED_ADDRESS = #{detailedAddress},
 			</if>
-			<if test="zipCode!=null">
+			<if test="zipCode!=null">  
 				ZIP_CODE = #{zipCode},
 			</if>
-			<if test="recPhone!=null">
+			<if test="consigneeTlp!=null">
 				CONSIGNEE_TLP = #{consigneeTlp},
 			</if>
 		</set>

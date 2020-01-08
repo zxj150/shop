@@ -75,7 +75,6 @@
 			<li class="nav-item"><a class="nav-link" href="user/userIndex"> <i class="fas fa-fw fa-table"></i> <span>用户管理</span></a></li>
 			<li class="nav-item"><a class="nav-link" href="link/shopadmain"> <i class="fas fa-fw fa-chart-area"></i> <span>商品管理</span></a></li>
 			<li class="nav-item"><a class="nav-link" href="form/index"> <i class="fas fa-fw fa-table"></i> <span>订单管理</span></a></li>
-			<li class="nav-item"><a class="nav-link" href="address/index"> <i class="fas fa-fw fa-table"></i> <span>地址管理</span></a></li>
 			
 		</ul>
 		<!-- 左侧 菜单结束  -->
